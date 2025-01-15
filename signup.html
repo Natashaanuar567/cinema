@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/jpeg" href="logo.jpeg">
+    <title>Cinema Sign Up</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #fff;
+        }
+
+        .signup-container {
+            background: linear-gradient(145deg, #2a2a2a, #333333);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            width: 380px;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .signup-container h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #e51937;
+            font-size: 28px;
+            font-weight: 600;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .signup-container label {
+            font-size: 15px;
+            color: #e0e0e0;
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .signup-container input[type="text"],
+        .signup-container input[type="email"],
+        .signup-container input[type="password"] {
+            width: calc(100% - 24px);
+            padding: 14px 12px;
+            margin-bottom: 25px;
+            border: 1px solid #444;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            font-size: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .signup-container input[type="text"]:focus,
+        .signup-container input[type="email"]:focus,
+        .signup-container input[type="password"]:focus {
+            outline: none;
+            border-color: #e51937;
+            background-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 0 2px rgba(229, 25, 55, 0.1);
+        }
+
+        .signup-container button {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(to right, #e51937, #ff2d55);
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .signup-container button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(229, 25, 55, 0.3);
+        }
+
+        .signup-container button:active {
+            transform: translateY(0);
+        }
+
+        .signup-container .login {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 14px;
+            color: #ccc;
+        }
+
+        .signup-container .login a {
+            color: #e51937;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .signup-container .login a:hover {
+            color: #ff2d55;
+            text-decoration: none;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Add responsive design */
+        @media (max-width: 480px) {
+            .signup-container {
+                width: 85%;
+                padding: 30px 20px;
+                margin: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="signup-container">
+        <h2>RedVibe Cinema</h2>
+        <form onsubmit="handleSubmit(event)">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+            <label for="confirm_password">Confirm Password</label>
+            <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm your password"
+                required>
+
+            <button type="submit">Sign Up</button>
+        </form>
+        <div class="login">
+            Already have an account? <a href="login.html">Log In</a>
+        </div>
+    </div>
+
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+
+            // Basic password match validation
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm_password').value;
+
+            if (password !== confirmPassword) {
+                alert('Passwords do not match!');
+                return;
+            }
+
+            // For demo purposes, redirect to login page
+            window.location.href = 'login.html';
+        }
+    </script>
+</body>
+
+</html>
